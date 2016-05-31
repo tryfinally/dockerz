@@ -6,9 +6,15 @@
     become: yes
     become_method: sudo
 
-  - name: pull ngnix image
-    docker_image: name=ngnix
-
   - name: make container
     docker: name=my_ngnix image=ngnix state=present
+
+  -name: create container with volume
+   docker_container:
+        name: my_web
+        image: ngnix
+        volumes:
+           - ~/www:/usr/share/nginx/html:ro
+        ports:
+           - 8080:8080
 
