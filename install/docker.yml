@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  tasks:
+  - name: install git
+    yum: name=git state=latest
+  
+  - name: install docker
+    yum: name=docker state=latest
+
+  - name: start docker service
+    service: name=docker  state=started
+
+  - name: add user to docker group
+    user: name=ec2-user group=docker
+
