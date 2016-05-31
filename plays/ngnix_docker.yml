@@ -3,6 +3,9 @@
   tasks:
   - name: install pip requirments
     pip: name=docker-py
+    become: yes
+    become_method: sudo
+
   - name: pull ngnix image
     docker_image: name=ngnix
 
