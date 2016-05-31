@@ -2,7 +2,7 @@
 - hosts: localhost
   tasks:
   - name: install pip requirments
-    pip: name=docker-py
+    pip: name=docker-py version=1.6.0
     become: yes
     become_method: sudo
 
