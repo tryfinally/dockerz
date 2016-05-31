@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+  - name: pull ngnix image
+    docker_image: name=ngnix
+
+  - name: make container
+    docker: name=my_ngnix image=ngnix state=present
+
