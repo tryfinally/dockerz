@@ -1,6 +1,8 @@
 ---
 - hosts: localhost
   tasks:
+  - name: install pip requirments
+    pip: name=docker-py
   - name: pull ngnix image
     docker_image: name=ngnix
 
